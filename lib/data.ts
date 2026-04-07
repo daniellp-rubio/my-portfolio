@@ -11,12 +11,16 @@ export const personal = {
   subTagline:
     "Especializado en React, Next.js y Node.js · 2+ años en producción · Equipos remotos en LATAM",
   email: "dafeloru@gmail.com",
-  github: "https://github.com/daniellp_rubio",
+  github: "https://github.com/daniellp-rubio",
   linkedin: "https://linkedin.com/in/daniel-lopez-rubio",
   location: "Medellín, Colombia · Remoto",
   availability: "Disponible para nuevas oportunidades",
   availabilityColor: "green" as const,
-  cvUrl: "/cv-daniel-lopez.pdf", // <-- Agrega tu CV en /public/
+  cvUrl: "/cv-daniel-lopez.pdf",    // CV en español → coloca el archivo en /public/
+  cvUrlEn: "/cv-daniel-lopez-en.pdf", // CV en inglés  → coloca el archivo en /public/
+  get contactUrl() {
+    return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(this.email)}`;
+  },
 };
 
 export const stats = [

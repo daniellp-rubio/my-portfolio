@@ -1,6 +1,9 @@
+"use client";
+
 import { Monitor, Server, Database, Wrench } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { stack } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 const iconMap = {
@@ -10,38 +13,44 @@ const iconMap = {
   tool: Wrench,
 };
 
-const levelStyles = {
-  core: "bg-accent/15 text-accent border-accent/25 font-medium",
-  proficient: "bg-surface text-text-secondary border-border",
-  familiar: "bg-transparent text-text-muted border-border/50",
-};
-
-const levelLabel = {
-  core: "Core",
-  proficient: "Proficiente",
-  familiar: "Familiar",
-};
-
 export function Stack() {
+  const { t } = useLanguage();
+  const { levels } = t.stack;
+
+  const levelStyles = {
+    core: "bg-accent/15 text-accent border-accent/25 font-medium",
+    proficient: "bg-surface text-text-secondary border-border",
+    familiar: "bg-transparent text-text-muted border-border/50",
+  };
+
+  const levelLabel = {
+    core: levels.core,
+    proficient: levels.proficient,
+    familiar: levels.familiar,
+  };
+
   return (
     <section id="stack" className="py-24 relative">
-      {/* Subtle separator */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
-          <SectionLabel className="justify-center">Stack Tecnológico</SectionLabel>
+          <SectionLabel className="justify-center">{t.stack.label}</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
-            Herramientas que uso en producción
+            {t.stack.headline}
           </h2>
           <p className="text-text-secondary mt-3 max-w-xl mx-auto">
-            No solo las conozco — las he usado en sistemas reales con usuarios reales.
+            {t.stack.subtext}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stack.map((category) => {
+          {stack.map((category, idx) => {
             const Icon = iconMap[category.icon as keyof typeof iconMap];
+            // Get translated category name by index
+            const translatedCategory = t.stack.categories[idx];
+            const categoryName = translatedCategory?.name ?? category.name;
+
             return (
               <div
                 key={category.name}
@@ -52,7 +61,7 @@ export function Stack() {
                     <Icon size={15} className="text-accent" />
                   </div>
                   <span className="font-semibold text-sm text-text-primary">
-                    {category.name}
+                    {categoryName}
                   </span>
                 </div>
 
@@ -83,17 +92,17 @@ export function Stack() {
 
         {/* Legend */}
         <div className="flex flex-wrap justify-center gap-6 mt-10">
-          {Object.entries(levelLabel).map(([key, label]) => (
-            <div key={key} className="flex items-center gap-2">
+          {(["core", "proficient", "familiar"] as const).map((level) => (
+            <div key={level} className="flex items-center gap-2">
               <span
                 className={cn(
                   "px-2 py-0.5 rounded text-[10px] border",
-                  levelStyles[key as keyof typeof levelStyles]
+                  levelStyles[level]
                 )}
               >
-                ejemplo
+                example
               </span>
-              <span className="text-xs text-text-muted">{label}</span>
+              <span className="text-xs text-text-muted">{levelLabel[level]}</span>
             </div>
           ))}
         </div>

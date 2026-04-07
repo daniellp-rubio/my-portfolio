@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "@/components/layout/Providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://daniellopez.dev"),
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Daniel Lopez",
   },
   description:
-    "Full Stack Developer especializado en React, Next.js y Node.js. Construyo sistemas en producción que escalan. Disponible para trabajo remoto global.",
+    "Full Stack Developer specialized in React, Next.js, and Node.js. 2+ years building production systems. Available for remote work globally.",
   keywords: [
     "full stack developer",
     "react developer",
@@ -20,23 +21,26 @@ export const metadata: Metadata = {
     "frontend developer",
     "backend developer",
     "software engineer",
+    "desarrollador full stack",
+    "desarrollador react",
   ],
   authors: [{ name: "Daniel Felipe Lopez Rubio" }],
   creator: "Daniel Felipe Lopez Rubio",
   openGraph: {
     type: "website",
     locale: "es_CO",
+    alternateLocale: "en_US",
     url: "https://daniellopez.dev",
     title: "Daniel Lopez — Full Stack Developer",
     description:
-      "Full Stack Developer especializado en React, Next.js y Node.js. Sistemas en producción. Disponible para trabajo remoto.",
+      "Full Stack Developer specialized in React, Next.js, and Node.js. Production systems. Available for remote work.",
     siteName: "Daniel Lopez",
   },
   twitter: {
     card: "summary_large_image",
     title: "Daniel Lopez — Full Stack Developer",
     description:
-      "Full Stack Developer especializado en React, Next.js y Node.js.",
+      "Full Stack Developer specialized in React, Next.js, and Node.js.",
     creator: "@daniellopezdev",
   },
   robots: {
@@ -72,7 +76,9 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-background text-text-primary antialiased">{children}</body>
+      <body className="bg-background text-text-primary antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

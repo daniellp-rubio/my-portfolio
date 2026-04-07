@@ -1,7 +1,12 @@
+"use client";
+
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { personal } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-border bg-background">
       <div className="max-w-6xl mx-auto px-6 py-12">
@@ -12,7 +17,7 @@ export function Footer() {
               daniel<span className="text-accent">.</span>dev
             </div>
             <p className="text-xs text-text-muted mt-1">
-              Full Stack Developer · {personal.location}
+              Full Stack Developer · {t.footer.location}
             </p>
           </div>
 
@@ -37,7 +42,7 @@ export function Footer() {
               <Linkedin size={18} />
             </a>
             <a
-              href={`mailto:${personal.email}`}
+              href={personal.contactUrl}
               className="p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface transition-all"
               aria-label="Email"
             >
@@ -51,16 +56,14 @@ export function Footer() {
             className="flex items-center gap-2 text-xs text-text-muted hover:text-text-secondary transition-colors"
           >
             <ArrowUp size={14} />
-            Volver arriba
+            {t.footer.backToTop}
           </a>
         </div>
 
         <div className="mt-8 pt-6 border-t border-border/50 text-center">
           <p className="text-xs text-text-muted">
-            Construido con Next.js, TypeScript y Tailwind CSS ·{" "}
-            <span className="text-text-muted/70">
-              {new Date().getFullYear()}
-            </span>
+            {t.footer.builtWith} ·{" "}
+            <span className="text-text-muted/70">{new Date().getFullYear()}</span>
           </p>
         </div>
       </div>

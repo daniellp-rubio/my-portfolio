@@ -1,11 +1,14 @@
 "use client";
 
-import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { ArrowDown, Github, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { personal, stats } from "@/lib/data";
+import { personal } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -24,7 +27,7 @@ export function Hero() {
             <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
               <span className="glow-dot" />
               <span className="text-xs font-medium text-green-400">
-                {personal.availability}
+                {t.hero.availability}
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-text-muted">
@@ -35,60 +38,46 @@ export function Hero() {
 
           {/* Main headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
-            <span className="text-text-primary">Construyo sistemas</span>
+            <span className="text-text-primary">{t.hero.headline.line1}</span>
             <br />
-            <span className="gradient-text-blue">que escalan,</span>
+            <span className="gradient-text-blue">{t.hero.headline.line2}</span>
             <br />
-            <span className="text-text-primary">no solo código</span>
+            <span className="text-text-primary">{t.hero.headline.line3}</span>
             <br />
-            <span className="text-text-secondary font-light">que funciona.</span>
+            <span className="text-text-secondary font-light">{t.hero.headline.line4}</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl">
-            Full Stack Developer especializado en{" "}
-            <span className="text-text-primary font-medium">React, Next.js y Node.js</span>.
-            {" "}Dos años construyendo y estabilizando plataformas en producción
-            que operan en{" "}
-            <span className="text-text-primary font-medium">Colombia, México y Brasil</span>.
+            {t.hero.subtext.split("React, Next.js")[0]}
+            <span className="text-text-primary font-medium">React, Next.js{t.lang === "es" ? " y" : " and"} Node.js</span>
+            {t.hero.subtext.split("Node.js")[1].split("Colombia")[0]}
+            <span className="text-text-primary font-medium">Colombia{t.lang === "es" ? ", México y Brasil" : ", Mexico, and Brazil"}</span>
+            {t.hero.subtext.split(t.lang === "es" ? "Brasil" : "Brazil")[1]}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-14">
-            <Button
-              size="lg"
-              href="#projects"
-              className="group"
-            >
-              Ver mis proyectos
+            <Button size="lg" href="#projects" className="group">
+              {t.hero.cta.primary}
               <ArrowDown
                 size={16}
                 className="group-hover:translate-y-0.5 transition-transform"
               />
             </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              href={`mailto:${personal.email}`}
-              className="group"
-            >
+            <Button variant="secondary" size="lg" href={personal.contactUrl}>
               <Mail size={16} />
-              Hablemos
+              {t.hero.cta.secondary}
             </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              href={personal.github}
-              external
-            >
+            <Button variant="ghost" size="lg" href={personal.github} external>
               <Github size={16} />
-              GitHub
+              {t.hero.cta.github}
             </Button>
           </div>
 
           {/* Stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
-            {stats.map((stat) => (
+            {t.hero.stats.map((stat) => (
               <div
                 key={stat.label}
                 className="flex flex-col gap-0.5 p-4 rounded-xl bg-surface/50 border border-border/50 backdrop-blur-sm"
@@ -116,7 +105,9 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-xs text-text-muted tracking-widest uppercase">scroll</span>
+        <span className="text-xs text-text-muted tracking-widest uppercase">
+          {t.hero.scroll}
+        </span>
         <ArrowDown size={14} className="text-text-muted" />
       </div>
     </section>

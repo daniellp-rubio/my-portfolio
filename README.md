@@ -97,6 +97,6 @@ Si quieres trabajar conmigo o tienes una oportunidad:
 
 * Email: [dafeloru@gmail.com](mailto:dafeloru@gmail.com)
 * LinkedIn: [daniel-lopez-rubio](https://linkedin.com/in/daniel-lopez-rubio)
-* GitHub: [daniellp_rubio](https://github.com/daniellp_rubio)
+* GitHub: [daniellp-rubio](https://github.com/daniellp-rubio)
 
 ---
