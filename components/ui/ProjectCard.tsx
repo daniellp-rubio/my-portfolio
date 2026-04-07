@@ -6,13 +6,35 @@ import { type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
+type CardLabels = {
+  problem?: string;
+  solution?: string;
+  result?: string;
+  detailsOpen?: string;
+  detailsClose?: string;
+};
+
 interface ProjectCardProps {
   project: Project;
   featured?: boolean;
+  labels?: CardLabels;
 }
 
-export function ProjectCard({ project, featured = false }: ProjectCardProps) {
+const DEFAULT_LABELS: Required<CardLabels> = {
+  problem: "Problema",
+  solution: "Solución",
+  result: "Resultado",
+  detailsOpen: "Ver detalles",
+  detailsClose: "Ver menos",
+};
+
+export function ProjectCard({
+  project,
+  featured = false,
+  labels = {},
+}: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const l = { ...DEFAULT_LABELS, ...labels };
 
   if (featured) {
     return (
@@ -24,7 +46,9 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
-              <Badge variant="blue" className="mb-3">{project.category}</Badge>
+              <Badge variant="blue" className="mb-3">
+                {project.category}
+              </Badge>
               <h3 className="text-xl font-semibold text-text-primary leading-tight">
                 {project.title}
               </h3>
@@ -39,7 +63,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-border/50 text-text-muted hover:text-text-primary hover:bg-border transition-all"
-                  aria-label="Ver código"
+                  aria-label="Source code"
                 >
                   <Github size={16} />
                 </a>
@@ -50,7 +74,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-border/50 text-text-muted hover:text-accent hover:bg-accent/10 transition-all"
-                  aria-label="Ver proyecto"
+                  aria-label="Live project"
                 >
                   <ExternalLink size={16} />
                 </a>
@@ -62,17 +86,21 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           <div className="grid grid-cols-3 gap-4 mb-6 p-4 rounded-xl bg-background/50 border border-border/50">
             {project.metrics.map((metric, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl font-bold gradient-text-blue">{metric.value}</div>
-                <div className="text-xs text-text-muted mt-0.5">{metric.label}</div>
+                <div className="text-2xl font-bold gradient-text-blue">
+                  {metric.value}
+                </div>
+                <div className="text-xs text-text-muted mt-0.5">
+                  {metric.label}
+                </div>
               </div>
             ))}
           </div>
 
           {/* Problem / Solution / Result */}
           <div className="space-y-4">
-            <ProjectDetail label="Problema" text={project.problem} color="red" />
-            <ProjectDetail label="Solución" text={project.solution} color="blue" />
-            <ProjectDetail label="Resultado" text={project.result} color="green" />
+            <ProjectDetail label={l.problem} text={project.problem} color="red" />
+            <ProjectDetail label={l.solution} text={project.solution} color="blue" />
+            <ProjectDetail label={l.result} text={project.result} color="green" />
           </div>
 
           {/* Tags */}
@@ -93,7 +121,9 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
       <div className="p-6">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
-            <Badge variant="outline" className="mb-2 text-xs">{project.category}</Badge>
+            <Badge variant="outline" className="mb-2 text-xs">
+              {project.category}
+            </Badge>
             <h3 className="font-semibold text-text-primary">{project.title}</h3>
             <p className="text-sm text-text-secondary mt-1">{project.shortDesc}</p>
           </div>
@@ -125,7 +155,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           onClick={() => setExpanded(!expanded)}
           className="flex items-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors mb-3"
         >
-          <span>{expanded ? "Ver menos" : "Ver detalles"}</span>
+          <span>{expanded ? l.detailsClose : l.detailsOpen}</span>
           <ArrowRight
             size={12}
             className={cn("transition-transform", expanded && "rotate-90")}
@@ -134,7 +164,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
 
         {expanded && (
           <div className="space-y-3 mb-4 animate-fade-in">
-            <ProjectDetail label="Resultado" text={project.result} color="green" small />
+            <ProjectDetail label={l.result} text={project.result} color="green" small />
           </div>
         )}
 
@@ -169,10 +199,20 @@ function ProjectDetail({
 
   return (
     <div className={cn("rounded-lg border p-3", colorMap[color])}>
-      <div className={cn("font-semibold mb-1", small ? "text-xs" : "text-xs uppercase tracking-wider")}>
+      <div
+        className={cn(
+          "font-semibold mb-1",
+          small ? "text-xs" : "text-xs uppercase tracking-wider"
+        )}
+      >
         {label}
       </div>
-      <p className={cn("text-text-secondary leading-relaxed", small ? "text-xs" : "text-sm")}>
+      <p
+        className={cn(
+          "text-text-secondary leading-relaxed",
+          small ? "text-xs" : "text-sm"
+        )}
+      >
         {text}
       </p>
     </div>

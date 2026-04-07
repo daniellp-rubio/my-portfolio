@@ -1,6 +1,8 @@
+"use client";
+
 import { Target, Zap, Users, Shield } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { about } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 
 const iconMap = {
   target: Target,
@@ -10,13 +12,16 @@ const iconMap = {
 };
 
 export function About() {
+  const { t } = useLanguage();
+  const { about } = t;
+
   return (
     <section id="about" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: Text */}
           <div>
-            <SectionLabel>Sobre mí</SectionLabel>
+            <SectionLabel>{about.label}</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary mb-6 leading-tight">
               {about.headline}
             </h2>
@@ -31,17 +36,25 @@ export function About() {
             {/* Languages */}
             <div className="mt-8 p-4 rounded-xl bg-surface border border-border">
               <div className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">
-                Idiomas
+                {about.languages.title}
               </div>
               <div className="flex gap-4">
                 <div>
-                  <div className="text-sm font-medium text-text-primary">Español</div>
-                  <div className="text-xs text-text-muted">Nativo</div>
+                  <div className="text-sm font-medium text-text-primary">
+                    {about.languages.spanish.name}
+                  </div>
+                  <div className="text-xs text-text-muted">
+                    {about.languages.spanish.level}
+                  </div>
                 </div>
                 <div className="w-px bg-border" />
                 <div>
-                  <div className="text-sm font-medium text-text-primary">Inglés</div>
-                  <div className="text-xs text-text-muted">Intermedio · B1 (en proceso de mejora)</div>
+                  <div className="text-sm font-medium text-text-primary">
+                    {about.languages.english.name}
+                  </div>
+                  <div className="text-xs text-text-muted">
+                    {about.languages.english.level}
+                  </div>
                 </div>
               </div>
             </div>
@@ -72,28 +85,34 @@ export function About() {
             {/* Education card */}
             <div className="sm:col-span-2 p-5 rounded-xl bg-surface border border-border">
               <div className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">
-                Formación
+                {about.education.title}
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-purple/10 border border-purple/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-purple text-xs font-bold">S</span>
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-text-primary">
-                    Tecnólogo en Análisis y Desarrollo de Software
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple/10 border border-purple/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-purple text-xs font-bold">S</span>
                   </div>
-                  <div className="text-xs text-text-secondary mt-0.5">SENA · 2023–2024 · Medellín, Colombia</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 mt-4">
-                <div className="w-8 h-8 rounded-lg bg-purple/10 border border-purple/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-purple text-xs font-bold">S</span>
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-text-primary">
-                    Tecnico en Desarrollo de Software
+                  <div>
+                    <div className="text-sm font-medium text-text-primary">
+                      {about.education.degree1}
+                    </div>
+                    <div className="text-xs text-text-secondary mt-0.5">
+                      {about.education.institution} · {about.education.period1}
+                    </div>
                   </div>
-                  <div className="text-xs text-text-secondary mt-0.5">SENA · 2021–2022 · Medellín, Colombia</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple/10 border border-purple/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-purple text-xs font-bold">S</span>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-text-primary">
+                      {about.education.degree2}
+                    </div>
+                    <div className="text-xs text-text-secondary mt-0.5">
+                      {about.education.institution} · {about.education.period2}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
