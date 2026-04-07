@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { personal } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -21,7 +22,8 @@ export function Hero() {
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-purple/5 blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6 py-24 w-full">
-        <div className="max-w-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
           {/* Availability badge */}
           <div className="flex items-center gap-3 mb-8">
             <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
@@ -100,6 +102,25 @@ export function Hero() {
               </Badge>
             ))}
           </div>
+        </div>
+
+          {/* Photo */}
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-3xl bg-accent/20 blur-2xl -z-10" />
+              <div className="relative w-80 aspect-[3/4] rounded-3xl overflow-hidden border border-border/50">
+                <Image
+                  src="/profile.jpg"
+                  alt={personal.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 

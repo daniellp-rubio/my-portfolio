@@ -82,6 +82,8 @@ export type Translation = {
     problemLabel: string;
     solutionLabel: string;
     resultLabel: string;
+    codeLabel: string;
+    liveLabel: string;
   };
   projectsData: ProjectTranslation[];
   experience: {
