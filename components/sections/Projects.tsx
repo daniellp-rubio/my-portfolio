@@ -56,6 +56,8 @@ export function Projects() {
                 problem: t.projects.problemLabel,
                 solution: t.projects.solutionLabel,
                 result: t.projects.resultLabel,
+                codeLabel: t.projects.codeLabel,
+                liveLabel: t.projects.liveLabel,
               }}
             />
           ))}
@@ -82,6 +84,8 @@ export function Projects() {
                     result: t.projects.resultLabel,
                     detailsOpen: t.projects.detailsOpen,
                     detailsClose: t.projects.detailsClose,
+                    codeLabel: t.projects.codeLabel,
+                    liveLabel: t.projects.liveLabel,
                   }}
                 />
               ))}

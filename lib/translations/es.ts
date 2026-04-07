@@ -97,6 +97,8 @@ export const es: Translation = {
     problemLabel: "Problema",
     solutionLabel: "Solución",
     resultLabel: "Resultado",
+    codeLabel: "Código",
+    liveLabel: "Ver proyecto",
   },
   projectsData: [
     {

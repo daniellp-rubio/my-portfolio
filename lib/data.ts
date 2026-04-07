@@ -101,6 +101,8 @@ export const projects: Project[] = [
       { value: "2", label: "tipos de usuario (admin/cliente)" },
       { value: "100%", label: "en producción" },
     ],
+    github: "https://github.com/daniellp-rubio/DyD",  // si es público
+    live: "https://gadgetsdyd-daintzs-projects.vercel.app/",
   },
   {
     id: "admin-dashboard",

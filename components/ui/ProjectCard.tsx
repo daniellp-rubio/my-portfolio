@@ -12,6 +12,8 @@ type CardLabels = {
   result?: string;
   detailsOpen?: string;
   detailsClose?: string;
+  codeLabel?: string;
+  liveLabel?: string;
 };
 
 interface ProjectCardProps {
@@ -26,6 +28,8 @@ const DEFAULT_LABELS: Required<CardLabels> = {
   result: "Resultado",
   detailsOpen: "Ver detalles",
   detailsClose: "Ver menos",
+  codeLabel: "Código",
+  liveLabel: "Ver proyecto",
 };
 
 export function ProjectCard({
@@ -111,6 +115,42 @@ export function ProjectCard({
               </Badge>
             ))}
           </div>
+
+          {/* Action buttons */}
+          <div className="flex gap-3 mt-5 pt-5 border-t border-border/50">
+            {project.github ? (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/50 text-text-secondary hover:text-text-primary hover:bg-border transition-all"
+              >
+                <Github size={15} />
+                {l.codeLabel}
+              </a>
+            ) : (
+              <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/20 text-text-muted/40 cursor-not-allowed select-none">
+                <Github size={15} />
+                {l.codeLabel}
+              </span>
+            )}
+            {project.live ? (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/10 text-accent hover:bg-accent/20 transition-all"
+              >
+                <ExternalLink size={15} />
+                {l.liveLabel}
+              </a>
+            ) : (
+              <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/5 text-accent/30 cursor-not-allowed select-none">
+                <ExternalLink size={15} />
+                {l.liveLabel}
+              </span>
+            )}
+          </div>
         </div>
       </article>
     );
@@ -174,6 +214,41 @@ export function ProjectCard({
               {tag}
             </Badge>
           ))}
+        </div>
+
+        <div className="flex gap-2 mt-4 pt-4 border-t border-border/50">
+          {project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-border/50 text-text-secondary hover:text-text-primary hover:bg-border transition-all"
+            >
+              <Github size={13} />
+              {l.codeLabel}
+            </a>
+          ) : (
+            <span className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-border/20 text-text-muted/40 cursor-not-allowed select-none">
+              <Github size={13} />
+              {l.codeLabel}
+            </span>
+          )}
+          {project.live ? (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-accent/10 text-accent hover:bg-accent/20 transition-all"
+            >
+              <ExternalLink size={13} />
+              {l.liveLabel}
+            </a>
+          ) : (
+            <span className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-accent/5 text-accent/30 cursor-not-allowed select-none">
+              <ExternalLink size={13} />
+              {l.liveLabel}
+            </span>
+          )}
         </div>
       </div>
     </article>
