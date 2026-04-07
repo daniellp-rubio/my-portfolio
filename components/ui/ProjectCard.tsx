@@ -42,11 +42,11 @@ export function ProjectCard({
 
   if (featured) {
     return (
-      <article className="group relative bg-surface border border-border rounded-2xl overflow-hidden card-hover">
+      <article className="group relative bg-surface border border-border rounded-2xl overflow-hidden card-hover flex flex-col h-full">
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
-        <div className="p-8">
+        <div className="p-8 flex flex-col flex-1">
           {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
@@ -107,49 +107,49 @@ export function ProjectCard({
             <ProjectDetail label={l.result} text={project.result} color="green" />
           </div>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-border/50">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="muted">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Action buttons */}
-          <div className="flex gap-3 mt-5 pt-5 border-t border-border/50">
-            {project.github ? (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/50 text-text-secondary hover:text-text-primary hover:bg-border transition-all"
-              >
-                <Github size={15} />
-                {l.codeLabel}
-              </a>
-            ) : (
-              <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/20 text-text-muted/40 cursor-not-allowed select-none">
-                <Github size={15} />
-                {l.codeLabel}
-              </span>
-            )}
-            {project.live ? (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/10 text-accent hover:bg-accent/20 transition-all"
-              >
-                <ExternalLink size={15} />
-                {l.liveLabel}
-              </a>
-            ) : (
-              <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/5 text-accent/30 cursor-not-allowed select-none">
-                <ExternalLink size={15} />
-                {l.liveLabel}
-              </span>
-            )}
+          {/* Tags + Buttons — bloque anclado al fondo */}
+          <div className="mt-auto flex flex-col gap-4 pt-6 border-t border-border/50">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <Badge key={tag} variant="muted">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            <div className="flex gap-3 pt-4 border-t border-border/50">
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/50 text-text-secondary hover:text-text-primary hover:bg-border transition-all"
+                >
+                  <Github size={15} />
+                  {l.codeLabel}
+                </a>
+              ) : (
+                <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-border/20 text-text-muted/40 cursor-not-allowed select-none">
+                  <Github size={15} />
+                  {l.codeLabel}
+                </span>
+              )}
+              {project.live ? (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/10 text-accent hover:bg-accent/20 transition-all"
+                >
+                  <ExternalLink size={15} />
+                  {l.liveLabel}
+                </a>
+              ) : (
+                <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-accent/5 text-accent/30 cursor-not-allowed select-none">
+                  <ExternalLink size={15} />
+                  {l.liveLabel}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </article>
