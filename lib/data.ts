@@ -9,7 +9,7 @@ export const personal = {
   title: "Full Stack Developer",
   tagline: "Construyo sistemas que escalan, no solo código que funciona.",
   subTagline:
-    "Especializado en React, Next.js y Node.js · 2+ años en producción · Equipos remotos en LATAM",
+    "Especializado en React, Next.js y Node.js · 2.5+ años en producción · Equipos remotos en LATAM",
   email: "dafeloru@gmail.com",
   github: "https://github.com/daniellp-rubio",
   linkedin: "https://linkedin.com/in/daniel-lopez-rubio",
@@ -24,7 +24,7 @@ export const personal = {
 };
 
 export const stats = [
-  { value: "2+", label: "años en producción" },
+  { value: "2.5+", label: "años en producción" },
   { value: "3", label: "países de operación" },
   { value: "5+", label: "sistemas activos" },
   { value: "100%", label: "remoto" },
@@ -44,6 +44,82 @@ export const about = {
     { icon: "shield", label: "Código mantenible", desc: "Architecturas que el siguiente dev puede entender" },
   ],
 };
+
+
+export type Experience = {
+  company: string;
+  role: string;
+  period: string;
+  current: boolean;
+  type: string;
+  description: string;
+  highlights: string[];
+  tags: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    company: "Carryt",
+    role: "Desarrollador Full Stack",
+    period: "Mayo 2024 — Presente",
+    current: true,
+    type: "Full-time · Remoto",
+    description:
+      "Plataformas de logística de última milla (DIKE, Fieldvision, Treggo) que operan en Colombia, México y Brasil.",
+    highlights: [
+      "Responsabilidad directa sobre módulos financieros críticos en producción",
+      "Refactorización de arquitectura inestable heredada en sistemas con usuarios reales",
+      "Implementación de sistema de logging fullstack para detección de errores en tiempo real",
+      "Resolución de incidentes urgentes directamente en producción",
+      "Colaboración directa con stakeholders de negocio para transformar requerimientos en soluciones técnicas",
+    ],
+    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+  },
+  {
+    company: "D&D",
+    role: "Desarrollador Full Stack",
+    period: "Junio 2024 — Presente",
+    current: true,
+    type: "Freelance",
+    description:
+      "Desarrollo y mantenimiento de plataforma de comercio electrónico con panel administrativo.",
+    highlights: [
+      "Arquitectura full stack independiente de inicio a producción",
+      "Implementación de funcionalidades para usuario final y panel administrativo",
+      "Gestión autónoma del proyecto y comunicación directa con el cliente",
+    ],
+    tags: ["React", "Next.js", "Node.js", "MongoDB"],
+  },
+  {
+    company: "Disruptive Information Technologies",
+    role: "Desarrollador Frontend",
+    period: "Octubre 2023 — Abril 2024",
+    current: false,
+    type: "Full-time · Remoto",
+    description:
+      "Lideré el desarrollo del frontend de Mesadoko, plataforma SaaS, desde cero hasta producción.",
+    highlights: [
+      "Lideré la arquitectura frontend con Next.js y TypeScript",
+      "Entrega de múltiples módulos hasta producción",
+      "Colaboración directa con equipo de producto para mejorar UX",
+    ],
+    tags: ["Next.js", "TypeScript", "React"],
+  },
+  {
+    company: "SENA",
+    role: "Desarrollador Full Stack",
+    period: "Abril 2023 — Octubre 2023",
+    current: false,
+    type: "Práctica",
+    description:
+      "Desarrollo de panel administrativo y API REST para institución pública.",
+    highlights: [
+      "Panel administrativo con React y Tailwind CSS",
+      "API REST en .NET 6 con arquitectura en capas",
+    ],
+    tags: ["React", "Tailwind CSS", ".NET 6", "PostgreSQL"],
+  },
+];
 
 export type Project = {
   id: string;
@@ -143,81 +219,6 @@ export const projects: Project[] = [
       { value: "Multi", label: "módulos entregados" },
       { value: "Lead", label: "rol técnico frontend" },
     ],
-  },
-];
-
-export type Experience = {
-  company: string;
-  role: string;
-  period: string;
-  current: boolean;
-  type: string;
-  description: string;
-  highlights: string[];
-  tags: string[];
-};
-
-export const experience: Experience[] = [
-  {
-    company: "Carryt",
-    role: "Desarrollador Full Stack",
-    period: "Mayo 2024 — Presente",
-    current: true,
-    type: "Full-time · Remoto",
-    description:
-      "Plataformas de logística de última milla (DIKE, Fieldvision, Treggo) que operan en Colombia, México y Brasil.",
-    highlights: [
-      "Responsabilidad directa sobre módulos financieros críticos en producción",
-      "Refactorización de arquitectura inestable heredada en sistemas con usuarios reales",
-      "Implementación de sistema de logging fullstack para detección de errores en tiempo real",
-      "Resolución de incidentes urgentes directamente en producción",
-      "Colaboración directa con stakeholders de negocio para transformar requerimientos en soluciones técnicas",
-    ],
-    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
-  },
-  {
-    company: "D&D",
-    role: "Desarrollador Full Stack",
-    period: "Junio 2024 — Presente",
-    current: true,
-    type: "Freelance",
-    description:
-      "Desarrollo y mantenimiento de plataforma de comercio electrónico con panel administrativo.",
-    highlights: [
-      "Arquitectura full stack independiente de inicio a producción",
-      "Implementación de funcionalidades para usuario final y panel administrativo",
-      "Gestión autónoma del proyecto y comunicación directa con el cliente",
-    ],
-    tags: ["React", "Next.js", "Node.js", "MongoDB"],
-  },
-  {
-    company: "Disruptive Information Technologies",
-    role: "Desarrollador Frontend",
-    period: "Octubre 2023 — Abril 2024",
-    current: false,
-    type: "Full-time · Remoto",
-    description:
-      "Lideré el desarrollo del frontend de Mesadoko, plataforma SaaS, desde cero hasta producción.",
-    highlights: [
-      "Lideré la arquitectura frontend con Next.js y TypeScript",
-      "Entrega de múltiples módulos hasta producción",
-      "Colaboración directa con equipo de producto para mejorar UX",
-    ],
-    tags: ["Next.js", "TypeScript", "React"],
-  },
-  {
-    company: "SENA",
-    role: "Desarrollador Full Stack",
-    period: "Abril 2023 — Octubre 2023",
-    current: false,
-    type: "Práctica",
-    description:
-      "Desarrollo de panel administrativo y API REST para institución pública.",
-    highlights: [
-      "Panel administrativo con React y Tailwind CSS",
-      "API REST en .NET 6 con arquitectura en capas",
-    ],
-    tags: ["React", "Tailwind CSS", ".NET 6", "PostgreSQL"],
   },
 ];
 
