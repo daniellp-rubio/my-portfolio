@@ -83,6 +83,64 @@ export const en: Translation = {
       period2: "2021–2022 · Medellín, Colombia",
     },
   },
+  experience: {
+    label: "Experience",
+    headline: "2+ years building in production",
+    subtext:
+      "No simulations. Real systems with real users where mistakes have real consequences.",
+    currentBadge: "Current",
+  },
+  experienceData: [
+    {
+      company: "Carryt",
+      role: "Full Stack Developer",
+      type: "Full-time · Remote",
+      description:
+        "Last-mile logistics platforms (DIKE, Fieldvision, Treggo) operating in Colombia, Mexico, and Brazil.",
+      highlights: [
+        "Direct ownership of critical financial modules in production",
+        "Refactored unstable legacy architecture on live systems with real users",
+        "Built a fullstack automated logging system for real-time error detection",
+        "Resolved urgent production incidents directly on live systems",
+        "Worked directly with business stakeholders to translate requirements into scalable technical solutions",
+      ],
+    },
+    {
+      company: "D&D",
+      role: "Full Stack Developer",
+      type: "Freelance",
+      description:
+        "Development and maintenance of an e-commerce platform with an admin dashboard.",
+      highlights: [
+        "End-to-end full stack architecture from zero to production",
+        "Implemented customer-facing features and full admin panel functionality",
+        "Autonomous project management with direct client communication",
+      ],
+    },
+    {
+      company: "Disruptive Information Technologies",
+      role: "Frontend Developer",
+      type: "Full-time · Remote",
+      description:
+        "Led the frontend development of Mesadoko, a SaaS platform, from scratch to production.",
+      highlights: [
+        "Architected the frontend system with Next.js and TypeScript",
+        "Delivered multiple modules to production",
+        "Collaborated directly with the product team to improve UX and system flow",
+      ],
+    },
+    {
+      company: "SENA",
+      role: "Full Stack Developer",
+      type: "Internship",
+      description:
+        "Developed an admin panel and REST API for a public institution.",
+      highlights: [
+        "Admin panel with React and Tailwind CSS",
+        "REST API in .NET 6 with layered architecture",
+      ],
+    },
+  ],
   projects: {
     label: "Projects",
     headline: "Work that drives impact",
@@ -171,64 +229,6 @@ export const en: Translation = {
         { value: "0→1", label: "zero to production" },
         { value: "Multi", label: "modules delivered" },
         { value: "Lead", label: "frontend tech lead" },
-      ],
-    },
-  ],
-  experience: {
-    label: "Experience",
-    headline: "2+ years building in production",
-    subtext:
-      "No simulations. Real systems with real users where mistakes have real consequences.",
-    currentBadge: "Current",
-  },
-  experienceData: [
-    {
-      company: "Carryt",
-      role: "Full Stack Developer",
-      type: "Full-time · Remote",
-      description:
-        "Last-mile logistics platforms (DIKE, Fieldvision, Treggo) operating in Colombia, Mexico, and Brazil.",
-      highlights: [
-        "Direct ownership of critical financial modules in production",
-        "Refactored unstable legacy architecture on live systems with real users",
-        "Built a fullstack automated logging system for real-time error detection",
-        "Resolved urgent production incidents directly on live systems",
-        "Worked directly with business stakeholders to translate requirements into scalable technical solutions",
-      ],
-    },
-    {
-      company: "D&D",
-      role: "Full Stack Developer",
-      type: "Freelance",
-      description:
-        "Development and maintenance of an e-commerce platform with an admin dashboard.",
-      highlights: [
-        "End-to-end full stack architecture from zero to production",
-        "Implemented customer-facing features and full admin panel functionality",
-        "Autonomous project management with direct client communication",
-      ],
-    },
-    {
-      company: "Disruptive Information Technologies",
-      role: "Frontend Developer",
-      type: "Full-time · Remote",
-      description:
-        "Led the frontend development of Mesadoko, a SaaS platform, from scratch to production.",
-      highlights: [
-        "Architected the frontend system with Next.js and TypeScript",
-        "Delivered multiple modules to production",
-        "Collaborated directly with the product team to improve UX and system flow",
-      ],
-    },
-    {
-      company: "SENA",
-      role: "Full Stack Developer",
-      type: "Internship",
-      description:
-        "Developed an admin panel and REST API for a public institution.",
-      highlights: [
-        "Admin panel with React and Tailwind CSS",
-        "REST API in .NET 6 with layered architecture",
       ],
     },
   ],

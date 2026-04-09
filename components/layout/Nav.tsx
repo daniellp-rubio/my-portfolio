@@ -155,8 +155,8 @@ export function Nav() {
 
   const navLinks = [
     { href: "#about", label: t.nav.links.about },
-    { href: "#projects", label: t.nav.links.projects },
     { href: "#experience", label: t.nav.links.experience },
+    { href: "#projects", label: t.nav.links.projects },
     { href: "#stack", label: t.nav.links.stack },
     { href: "#contact", label: t.nav.links.contact },
   ];
