@@ -43,3 +43,7 @@ Thumbs.db
 # Misc
 *.log
 coverage/
+
+# DOCS
+.claude/
+CLAUDE.md

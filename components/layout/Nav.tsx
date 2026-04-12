@@ -95,6 +95,7 @@ function LangToggle() {
               : "text-text-muted hover:text-text-secondary"
           )}
           aria-label="Español"
+          aria-pressed={lang === "es"}
         >
           ES
         </button>
@@ -108,6 +109,7 @@ function LangToggle() {
               : "text-text-muted hover:text-text-secondary"
           )}
           aria-label="English"
+          aria-pressed={lang === "en"}
         >
           EN
         </button>
@@ -123,13 +125,15 @@ function LangToggleMobile() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="flex items-center gap-0.5 rounded-lg border border-border p-0.5">
+    <div className="flex items-center gap-0.5 rounded-lg border border-border p-0.5" role="group" aria-label="Seleccionar idioma">
       <button
         onClick={() => setLang("es")}
         className={cn(
           "px-2 py-1 rounded-md text-[11px] font-semibold tracking-wider transition-all duration-200",
           lang === "es" ? "bg-accent text-white" : "text-text-muted"
         )}
+        aria-label="Español"
+        aria-pressed={lang === "es"}
       >
         ES
       </button>
@@ -139,6 +143,8 @@ function LangToggleMobile() {
           "px-2 py-1 rounded-md text-[11px] font-semibold tracking-wider transition-all duration-200",
           lang === "en" ? "bg-accent text-white" : "text-text-muted"
         )}
+        aria-label="English"
+        aria-pressed={lang === "en"}
       >
         EN
       </button>
@@ -222,9 +228,11 @@ export function Nav() {
             <button
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface transition-all"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
             >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
             </button>
           </div>
         </nav>
@@ -232,7 +240,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col pt-20 px-6 pb-8 md:hidden">
+        <div id="mobile-nav" className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col pt-20 px-6 pb-8 md:hidden mobile-menu-enter">
           <div className="flex flex-col gap-1 flex-1">
             {navLinks.map((link) => (
               <a

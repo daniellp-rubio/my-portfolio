@@ -25,14 +25,14 @@ export const en: Translation = {
       line4: "that works.",
     },
     subtext:
-      "Full Stack Developer specialized in React, Next.js, and Node.js. Two years building and stabilizing production platforms operating across Colombia, Mexico, and Brazil.",
+      "Full Stack Developer specialized in React, Next.js, and Node.js. 2.5 years building and stabilizing production platforms operating across Colombia, Mexico, and Brazil.",
     cta: {
       primary: "View my projects",
       secondary: "Let's talk",
       github: "GitHub",
     },
     stats: [
-      { value: "2+", label: "years in production" },
+      { value: "2.5+", label: "years in production" },
       { value: "3", label: "countries of operation" },
       { value: "5+", label: "live systems" },
       { value: "100%", label: "remote" },
@@ -43,9 +43,9 @@ export const en: Translation = {
     label: "About",
     headline: "I don't just write code. I understand the business.",
     paragraphs: [
-      "Over the past 2 years I've worked directly on production systems operating in Colombia, Mexico, and Brazil. Not simulations or academic projects — critical financial modules, architectures that needed stabilizing, real incidents resolved under pressure.",
-      "I specialize in taking complex business problems and turning them into technical solutions that actually work. I collaborate well with stakeholders, understand the impact of every technical decision, and know when the perfect solution is worse than the one that ships.",
-      "I'm looking for remote teams where technical judgment matters, where the code you write goes to production, and where building it right from the start makes a real difference.",
+      "Over the past 2.5 years I've worked directly on production systems operating in Colombia, Mexico, and Brazil. Not simulations or academic projects — critical financial modules, architectures stabilized under pressure, integrations with legal consequences on errors.",
+      "I specialize in turning complex business problems into technical solutions that ship, not just that get designed. I understand the impact of every technical decision, work directly with stakeholders, and know when the perfect solution is worse than the one that arrives on time.",
+      "I'm looking for a remote team where technical judgment carries real weight — where what I build goes to production and where getting it right from the start actually matters.",
     ],
     values: [
       {
@@ -72,7 +72,7 @@ export const en: Translation = {
     languages: {
       title: "Languages",
       spanish: { name: "Spanish", level: "Native" },
-      english: { name: "English", level: "Intermediate · B1 (Constant improvement)" },
+      english: { name: "English", level: "Intermediate B1 · Actively improving" },
     },
     education: {
       title: "Education",
@@ -85,7 +85,7 @@ export const en: Translation = {
   },
   experience: {
     label: "Experience",
-    headline: "2+ years building in production",
+    headline: "2.5+ years building in production",
     subtext:
       "No simulations. Real systems with real users where mistakes have real consequences.",
     currentBadge: "Current",
@@ -96,25 +96,15 @@ export const en: Translation = {
       role: "Full Stack Developer",
       type: "Full-time · Remote",
       description:
-        "Last-mile logistics platforms (DIKE, Fieldvision, Treggo) operating in Colombia, Mexico, and Brazil.",
+        "Fullstack Developer on last-mile logistics platforms (DIKE, FieldVision, Treggo) running in production across Colombia, Mexico, and Brazil.",
       highlights: [
-        "Direct ownership of critical financial modules in production",
-        "Refactored unstable legacy architecture on live systems with real users",
-        "Built a fullstack automated logging system for real-time error detection",
-        "Resolved urgent production incidents directly on live systems",
-        "Worked directly with business stakeholders to translate requirements into scalable technical solutions",
-      ],
-    },
-    {
-      company: "D&D",
-      role: "Full Stack Developer",
-      type: "Freelance",
-      description:
-        "Development and maintenance of an e-commerce platform with an admin dashboard.",
-      highlights: [
-        "End-to-end full stack architecture from zero to production",
-        "Implemented customer-facing features and full admin panel functionality",
-        "Autonomous project management with direct client communication",
+        "Fully refactored the driver payment settlement module on top of an unstable architecture with recurring weekly errors → +20% processing speed, zero errors since the intervention",
+        "Took ownership of the RNDC module (Colombia's National Freight Dispatch Registry) — mandatory integration with the Ministry of Transportation, with legal consequences on errors",
+        "Onboarded onto an active project in 1 week, taking direct ownership of critical modules with no grace period",
+        "Implemented a fullstack automated logging system for real-time error detection",
+        "Adapted financial business logic for country-specific calculations (Colombia and Mexico) with distinct rules per market",
+        "Resolved critical incidents with direct production intervention, minimizing downtime on systems with active users",
+        "Translated complex business requirements into technical solutions by coordinating directly with operations stakeholders",
       ],
     },
     {
@@ -122,22 +112,27 @@ export const en: Translation = {
       role: "Frontend Developer",
       type: "Full-time · Remote",
       description:
-        "Led the frontend development of Mesadoko, a SaaS platform, from scratch to production.",
+        "Led the frontend of the Mesadoko web application (gamified educational platform) from scratch to production, on Next.js 13 + TypeScript.",
       highlights: [
-        "Architected the frontend system with Next.js and TypeScript",
-        "Delivered multiple modules to production",
-        "Collaborated directly with the product team to improve UX and system flow",
+        "Led a full frontend rewrite (proposal, client approval, and execution) achieving +60% UX improvement and -40% load times versus the inherited version",
+        "Delivered the platform within the estimated timeline, enabling the product's commercial launch on schedule",
+        "Designed a reusable component architecture that allowed new modules to be added without refactoring",
+        "Built a system connected to a mobile app with multiple functional modules from day one",
+        "Delivered documented, maintainable code as an explicit handoff deliverable for the next team",
       ],
     },
     {
       company: "SENA",
       role: "Full Stack Developer",
-      type: "Internship",
+      type: "Volunteer",
       description:
-        "Developed an admin panel and REST API for a public institution.",
+        "Led the fullstack development of SenaOnPrinting, a centralized management system for SENA's prepress workshop, replacing manual processes scattered across multiple unsynchronized Excel files.",
       highlights: [
-        "Admin panel with React and Tailwind CSS",
-        "REST API in .NET 6 with layered architecture",
+        "Designed and built the backend architecture in .NET 6 with a layered structure, including inventory, sales, production, and purchasing modules.",
+        "Built the frontend in React + Tailwind CSS with full CRUD, pagination, search, and reports.",
+        "Contributed to the initial structure of the mobile app (navigation, layout, first screens).",
+        "Coordinated with a non-technical client to turn ambiguous requirements into concrete solutions.",
+        "Project delivered as volunteer work, leading coordination across 10 people",
       ],
     },
   ],
@@ -148,7 +143,7 @@ export const en: Translation = {
       "Every project has a real problem, a concrete technical solution, and a measurable result. That's how I work.",
     othersLabel: "Other projects",
     githubCtaText:
-      "These are the projects I can show publicly. My daily work includes private production systems.",
+      "These are the projects I can show publicly. My main work is private production systems — multi-country logistics, financial modules, government integrations.",
     githubCtaLink: "See my GitHub activity →",
     detailsOpen: "See details",
     detailsClose: "See less",
@@ -157,78 +152,79 @@ export const en: Translation = {
     resultLabel: "Result",
     codeLabel: "Code",
     liveLabel: "Live demo",
+    privateLabel: "Private production system",
   },
   projectsData: [
     {
-      id: "logistics-platform",
-      title: "Multi-country Logistics Platform",
+      id: "dyd-tech",
+      title: "D&D Tech — Gadgets Ecommerce",
       shortDesc:
-        "Operational management system for last-mile delivery companies in LATAM",
+        "Personal venture: online gadget store with real payment processing",
+      category: "Personal Venture",
+      problem:
+        "I needed to build my own ecommerce from scratch to sell tech gadgets (earphones, Apple chargers, speakers) with real payment integration, a complete admin panel, and no dependency on third-party platforms like Shopify.",
+      solution:
+        "Built the entire platform self-taught, without AI assistance: Next.js 15 + Prisma + PostgreSQL, NextAuth v5 with role-based access (admin/user), native Mercado Pago integration with payment confirmation webhooks, Cloudinary for product images, Zustand for cart state, and a full admin panel for products, orders, and users.",
+      result:
+        "Live in production on Vercel with real payments processed through Mercado Pago. 9 product categories, full checkout with address management, order history, and a functional admin dashboard.",
+      metrics: [
+        { value: "9", label: "product categories" },
+        { value: "8", label: "Prisma models in production" },
+        { value: "2", label: "roles (admin / user)" },
+      ],
+    },
+    {
+      id: "sana-on-printing",
+      title: "SENA On Printing — Industrial Management System",
+      shortDesc:
+        "Web + mobile system that fully digitized the operation of a commercial printing workshop (offset, digital, and sublimation) in Medellín.",
       category: "Enterprise",
       problem:
-        "Unstable legacy architecture failing under real load. Financial settlement modules had silent bugs causing incorrect driver payment calculations.",
+        "The center operated entirely on paper and disconnected Excel sheets: no inventory traceability, unreliable quotes, and no stock verification before accepting production orders.",
       solution:
-        "Full refactor of critical modules, implementation of a fullstack automated logging system for real-time error detection, and complete redesign of the period-based settlement calculation logic.",
+        "Led a team of 10 building fullstack across 3 repositories (backend, frontend, mobile): REST Web API in ASP.NET Core 6.0 with a layered architecture on SQL Server, React.js frontend, and a Flutter mobile app. Delivered modules for configuration, RBAC-based user management, purchasing (supplies, suppliers, lots, QR labels, safety data sheets), production, and sales.",
       result:
-        "Silent bugs in financial calculations eliminated. System stabilized and running in production across Colombia, Mexico, and Brazil without interruptions.",
+        "Live in production with 90+ REST endpoints deployed on Vercel. Fully replaced paper-based processes, achieving complete inventory traceability and real-time stock control.",
       metrics: [
-        { value: "3", label: "countries" },
-        { value: "0", label: "settlement errors post-fix" },
-        { value: "100%", label: "production uptime" },
+        { value: "28", label: "SQL Server tables" },
+        { value: "90+", label: "REST endpoints" },
+        { value: "10", label: "people led" },
       ],
     },
     {
-      id: "ecommerce-platform",
-      title: "Full Stack E-commerce Platform",
+      id: "agent-hub",
+      title: "AgentHub — AI Agents Platform",
       shortDesc:
-        "E-commerce platform with complete admin dashboard",
-      category: "E-commerce",
+        "Multi-tenant platform to deploy conversational AI agents that qualify leads and convert inquiries into clinic patients.",
+      category: "AI / SaaS",
       problem:
-        "A business needed to digitize its sales operation with inventory management, order tracking, and user administration in a single integrated platform.",
+        "Clinics were losing leads due to no 24/7 coverage: no automated patient qualification system and no way to capture real-time intent signals.",
       solution:
-        "Full stack architecture with Next.js for the customer-facing frontend, React + TypeScript admin dashboard, and a Node.js REST API with role-based authentication and full catalog management.",
+        "Multi-tenant platform with embeddable agents via a single script tag, streaming LLMs via OpenRouter, Supabase persistence (PostgreSQL + RLS), and an automated classification pipeline generating intent, sentiment, and objection analytics.",
       result:
-        "Platform currently live in production. Reduced order management time from hours to minutes and enabled online sales to scale.",
+        "Agents running 24/7 on clinic websites with a conversion dashboard, bottleneck detection, and AI-generated automatic prompt improvement.",
       metrics: [
-        { value: "—", label: "management time" },
-        { value: "2", label: "user types" },
-        { value: "100%", label: "live in production" },
+        { value: "24/7", label: "automated coverage" },
+        { value: "Multi-tenant", label: "multi-org architecture" },
+        { value: "Streaming", label: "real-time LLM responses" },
       ],
     },
     {
-      id: "admin-dashboard",
-      title: "Web Administration System",
+      id: "franchise-api",
+      title: "Franchise API — Reactive Franchise Management",
       shortDesc:
-        "Scalable admin panel with independent module architecture",
-      category: "Dashboard",
+        "Cloud-ready reactive API for franchise, branch, and product management. Spring WebFlux + MongoDB + Terraform on AWS.",
+      category: "API / Backend",
       problem:
-        "A public organization needed to digitize manual management processes with multiple user roles, real-time reporting, and a robust API for integration with other systems.",
+        "Managing franchise operations under high concurrency required a non-blocking architecture — traditional Servlet-based systems degraded in latency under real load.",
       solution:
-        "Admin panel built with React + Tailwind CSS with granular role management, and a .NET 6 REST API structured in layers (controllers, services, repositories) backed by PostgreSQL.",
+        "End-to-end reactive API with Spring WebFlux + MongoDB reactive driver (fully non-blocking I/O), containerized with Docker Compose, cloud-ready infrastructure deployed on AWS ECS Fargate via Terraform, and integrated with SpringDoc OpenAPI for automatic documentation.",
       result:
-        "System deployed to production replacing paper-based processes. Layered architecture enabled external system integration without touching the core.",
+        "Production-ready system with a fully reactive architecture, reproducible infrastructure-as-code, and auto-generated interactive docs via Swagger UI.",
       metrics: [
-        { value: "0", label: "paper in the process" },
-        { value: "N", label: "configurable roles" },
-        { value: "REST", label: "integrable API" },
-      ],
-    },
-    {
-      id: "mesadoko",
-      title: "Mesadoko Web Application",
-      shortDesc:
-        "Complete frontend from scratch to production for a SaaS platform",
-      category: "SaaS",
-      problem:
-        "A startup needed to build their entire platform UI from zero, with multiple modules and a scalable architecture from day one.",
-      solution:
-        "Led the full frontend development: architected the system with Next.js and TypeScript, built a reusable component library, delivered multiple modules, and collaborated closely with the UX team.",
-      result:
-        "Platform launched to production on time. Scalable architecture that allowed new modules to be added without refactoring.",
-      metrics: [
-        { value: "0→1", label: "zero to production" },
-        { value: "Multi", label: "modules delivered" },
-        { value: "Lead", label: "frontend tech lead" },
+        { value: "Reactive", label: "Spring WebFlux + MongoDB non-blocking" },
+        { value: "IaC", label: "Terraform + AWS ECS Fargate" },
+        { value: "OpenAPI", label: "auto-generated Swagger docs" },
       ],
     },
   ],
@@ -251,9 +247,9 @@ export const en: Translation = {
   },
   contact: {
     label: "Contact",
-    headline: "Have a project or opportunity?",
+    headline: "Let's talk.",
     subtext:
-      "I'm available for remote full-time positions and freelance projects. If you need a developer who understands both the code and the business, let's talk.",
+      "Available for remote full-time positions and freelance projects. If you need a developer who understands the business behind the code — not just the syntax — I'm here.",
     primaryCta: "Send me an email",
     secondaryCta: "Download CV",
     clockNote: "Timezone: Colombia (UTC-5) · Flexible for US/EU teams",
@@ -288,6 +284,6 @@ export const en: Translation = {
   footer: {
     location: "Medellín, Colombia · Remote",
     backToTop: "Back to top",
-    builtWith: "Built with Next.js, TypeScript, and Tailwind CSS",
+    builtWith: "Full Stack Developer available for remote work · Built with Next.js, TypeScript, and Tailwind CSS",
   },
 };

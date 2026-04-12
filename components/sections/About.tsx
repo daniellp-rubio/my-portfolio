@@ -3,6 +3,7 @@
 import { Target, Zap, Users, Shield } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/context/LanguageContext";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 const iconMap = {
   target: Target,
@@ -14,10 +15,11 @@ const iconMap = {
 export function About() {
   const { t } = useLanguage();
   const { about } = t;
+  const sectionRef = useReveal<HTMLDivElement>();
 
   return (
     <section id="about" className="py-24 relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div ref={sectionRef} className="reveal max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: Text */}
           <div>

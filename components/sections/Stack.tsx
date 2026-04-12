@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { stack } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 const iconMap = {
   monitor: Monitor,
@@ -16,6 +17,7 @@ const iconMap = {
 export function Stack() {
   const { t } = useLanguage();
   const { levels } = t.stack;
+  const sectionRef = useReveal<HTMLDivElement>();
 
   const levelStyles = {
     core: "bg-accent/15 text-accent border-accent/25 font-medium",
@@ -33,7 +35,7 @@ export function Stack() {
     <section id="stack" className="py-24 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div ref={sectionRef} className="reveal max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <SectionLabel className="justify-center">{t.stack.label}</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
@@ -45,10 +47,12 @@ export function Stack() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stack.map((category, idx) => {
+          {stack.map((category) => {
             const Icon = iconMap[category.icon as keyof typeof iconMap];
-            // Get translated category name by index
-            const translatedCategory = t.stack.categories[idx];
+            // Get translated category name by key (robust — order-independent)
+            const translatedCategory = t.stack.categories.find(
+              (c) => c.key === category.key
+            );
             const categoryName = translatedCategory?.name ?? category.name;
 
             return (
@@ -79,7 +83,7 @@ export function Stack() {
                       >
                         {skill.name}
                       </span>
-                      <span className="text-[10px] text-text-muted shrink-0 w-16 text-right">
+                      <span className="text-[10px] text-text-muted shrink-0 text-right whitespace-nowrap">
                         {levelLabel[skill.level]}
                       </span>
                     </div>
@@ -91,7 +95,7 @@ export function Stack() {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap justify-center gap-6 mt-10">
+        <div className="flex flex-wrap justify-center gap-6 mt-10" aria-label={t.lang === "es" ? "Leyenda de niveles" : "Level legend"}>
           {(["core", "proficient", "familiar"] as const).map((level) => (
             <div key={level} className="flex items-center gap-2">
               <span
@@ -99,8 +103,9 @@ export function Stack() {
                   "px-2 py-0.5 rounded text-[10px] border",
                   levelStyles[level]
                 )}
+                aria-hidden="true"
               >
-                example
+                {levelLabel[level]}
               </span>
               <span className="text-xs text-text-muted">{levelLabel[level]}</span>
             </div>

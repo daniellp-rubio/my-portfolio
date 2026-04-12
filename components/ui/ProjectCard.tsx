@@ -14,6 +14,7 @@ type CardLabels = {
   detailsClose?: string;
   codeLabel?: string;
   liveLabel?: string;
+  privateLabel?: string;
 };
 
 interface ProjectCardProps {
@@ -30,6 +31,7 @@ const DEFAULT_LABELS: Required<CardLabels> = {
   detailsClose: "Ver menos",
   codeLabel: "Código",
   liveLabel: "Ver proyecto",
+  privateLabel: "Sistema privado en producción",
 };
 
 export function ProjectCard({
@@ -42,18 +44,29 @@ export function ProjectCard({
 
   if (featured) {
     return (
-      <article className="group relative bg-surface border border-border rounded-2xl overflow-hidden card-hover flex flex-col h-full">
+      <article
+        className="group relative bg-surface border border-border rounded-2xl overflow-hidden card-hover flex flex-col h-full"
+        aria-labelledby={`project-title-${project.id}`}
+      >
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" aria-hidden="true" />
 
         <div className="p-8 flex flex-col flex-1">
           {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
-              <Badge variant="blue" className="mb-3">
-                {project.category}
-              </Badge>
-              <h3 className="text-xl font-semibold text-text-primary leading-tight">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <Badge variant="blue">
+                  {project.category}
+                </Badge>
+                {!project.github && !project.live && (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" aria-hidden="true" />
+                    {l.privateLabel}
+                  </span>
+                )}
+              </div>
+              <h3 id={`project-title-${project.id}`} className="text-xl font-semibold text-text-primary leading-tight">
                 {project.title}
               </h3>
               <p className="text-text-secondary mt-1.5 text-sm leading-relaxed">
@@ -67,9 +80,9 @@ export function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-border/50 text-text-muted hover:text-text-primary hover:bg-border transition-all"
-                  aria-label="Source code"
+                  aria-label={`${l.codeLabel} — ${project.title}`}
                 >
-                  <Github size={16} />
+                  <Github size={16} aria-hidden="true" />
                 </a>
               )}
               {project.live && (
@@ -78,9 +91,9 @@ export function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-border/50 text-text-muted hover:text-accent hover:bg-accent/10 transition-all"
-                  aria-label="Live project"
+                  aria-label={`${l.liveLabel} — ${project.title}`}
                 >
-                  <ExternalLink size={16} />
+                  <ExternalLink size={16} aria-hidden="true" />
                 </a>
               )}
             </div>
@@ -108,7 +121,7 @@ export function ProjectCard({
           </div>
 
           {/* Tags + Buttons — bloque anclado al fondo */}
-          <div className="mt-auto flex flex-col gap-4 pt-6 border-t border-border/50">
+          <div className="mt-auto flex flex-col gap-3 pt-6 border-t border-border/50">
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <Badge key={tag} variant="muted">
@@ -116,7 +129,7 @@ export function ProjectCard({
                 </Badge>
               ))}
             </div>
-            <div className="flex gap-3 pt-4 border-t border-border/50">
+            <div className="flex gap-3 pt-3 border-t border-border/30">
               {project.github ? (
                 <a
                   href={project.github}
@@ -157,14 +170,17 @@ export function ProjectCard({
   }
 
   return (
-    <article className="group bg-surface border border-border rounded-xl overflow-hidden card-hover">
+    <article
+      className="group bg-surface border border-border rounded-xl overflow-hidden card-hover"
+      aria-labelledby={`project-title-${project.id}`}
+    >
       <div className="p-6">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
             <Badge variant="outline" className="mb-2 text-xs">
               {project.category}
             </Badge>
-            <h3 className="font-semibold text-text-primary">{project.title}</h3>
+            <h3 id={`project-title-${project.id}`} className="font-semibold text-text-primary">{project.title}</h3>
             <p className="text-sm text-text-secondary mt-1">{project.shortDesc}</p>
           </div>
           <div className="flex gap-1.5 shrink-0">
@@ -174,8 +190,9 @@ export function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-md text-text-muted hover:text-text-primary transition-colors"
+                aria-label={`${l.codeLabel} — ${project.title}`}
               >
-                <Github size={14} />
+                <Github size={14} aria-hidden="true" />
               </a>
             )}
             {project.live && (
@@ -184,8 +201,9 @@ export function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-md text-text-muted hover:text-accent transition-colors"
+                aria-label={`${l.liveLabel} — ${project.title}`}
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
             )}
           </div>
@@ -194,11 +212,13 @@ export function ProjectCard({
         <button
           onClick={() => setExpanded(!expanded)}
           className="flex items-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors mb-3"
+          aria-expanded={expanded}
         >
           <span>{expanded ? l.detailsClose : l.detailsOpen}</span>
           <ArrowRight
             size={12}
             className={cn("transition-transform", expanded && "rotate-90")}
+            aria-hidden="true"
           />
         </button>
 
