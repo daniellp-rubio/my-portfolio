@@ -15,8 +15,8 @@ const config: Config = {
       colors: {
         background: "#080808",
         surface: "#111111",
-        border: "#1a1a1a",
-        "border-subtle": "#141414",
+        border: "#222222",
+        "border-subtle": "#1a1a1a",
         "text-primary": "#f5f5f5",
         "text-secondary": "#a1a1aa",
         "text-muted": "#52525b",
