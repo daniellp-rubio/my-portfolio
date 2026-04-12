@@ -4,9 +4,11 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { projects } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 export function Projects() {
   const { t } = useLanguage();
+  const sectionRef = useReveal<HTMLDivElement>();
 
   // Merge language-agnostic data (tags, github, live, featured) with translated content
   const mergedProjects = projects.map((p) => {
@@ -30,7 +32,7 @@ export function Projects() {
     <section id="projects" className="py-24 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div ref={sectionRef} className="reveal max-w-6xl mx-auto px-6">
         <div className="mb-14">
           <SectionLabel>{t.projects.label}</SectionLabel>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -58,6 +60,7 @@ export function Projects() {
                 result: t.projects.resultLabel,
                 codeLabel: t.projects.codeLabel,
                 liveLabel: t.projects.liveLabel,
+                privateLabel: t.projects.privateLabel,
               }}
             />
           ))}

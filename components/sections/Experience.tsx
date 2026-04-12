@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/Badge";
 import { experience } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 export function Experience() {
   const { t } = useLanguage();
+  const sectionRef = useReveal<HTMLDivElement>();
 
   // Merge static data (period, current, type, tags) with translated text
   const mergedExperience = experience.map((job) => {
@@ -26,7 +28,7 @@ export function Experience() {
     <section id="experience" className="py-24 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div ref={sectionRef} className="reveal max-w-6xl mx-auto px-6">
         <div className="mb-14">
           <SectionLabel>{t.experience.label}</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">

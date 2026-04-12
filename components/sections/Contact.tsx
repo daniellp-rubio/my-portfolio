@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { personal } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 const iconComponents = { Mail, Linkedin, Github };
 
@@ -12,6 +13,7 @@ export function Contact() {
   const { t, lang } = useLanguage();
   const { contact } = t;
   const cvUrl = lang === "en" ? personal.cvUrlEn : personal.cvUrl;
+  const sectionRef = useReveal<HTMLDivElement>();
 
   const contactOptions = [
     {
@@ -33,7 +35,7 @@ export function Contact() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-accent/5 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div ref={sectionRef} className="reveal max-w-6xl mx-auto px-6 relative">
         {/* Main CTA block */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <SectionLabel className="justify-center">{contact.label}</SectionLabel>

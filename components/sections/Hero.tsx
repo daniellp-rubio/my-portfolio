@@ -16,10 +16,10 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden"
     >
       {/* Background effects */}
-      <div className="absolute inset-0 grid-bg opacity-100" />
-      <div className="absolute inset-0 bg-hero-glow" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-purple/5 blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-100" aria-hidden="true" />
+      <div className="absolute inset-0 bg-hero-glow" aria-hidden="true" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-purple/5 blur-[100px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-6 py-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -27,14 +27,14 @@ export function Hero() {
           {/* Availability badge */}
           <div className="flex items-center gap-3 mb-8">
             <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="glow-dot" />
+              <span className="glow-dot" aria-hidden="true" />
               <span className="text-xs font-medium text-green-400">
                 {t.hero.availability}
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-text-muted">
-              <MapPin size={12} />
-              {personal.location}
+              <MapPin size={12} aria-hidden="true" />
+              <span>{personal.location}</span>
             </div>
           </div>
 
@@ -49,13 +49,9 @@ export function Hero() {
             <span className="text-text-secondary font-light">{t.hero.headline.line4}</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — rendered directly from translation, no fragile string splits */}
           <p className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl">
-            {t.hero.subtext.split("React, Next.js")[0]}
-            <span className="text-text-primary font-medium">React, Next.js{t.lang === "es" ? " y" : " and"} Node.js</span>
-            {t.hero.subtext.split("Node.js")[1].split("Colombia")[0]}
-            <span className="text-text-primary font-medium">Colombia{t.lang === "es" ? ", México y Brasil" : ", Mexico, and Brazil"}</span>
-            {t.hero.subtext.split(t.lang === "es" ? "Brasil" : "Brazil")[1]}
+            {t.hero.subtext}
           </p>
 
           {/* CTA Buttons */}
@@ -65,29 +61,31 @@ export function Hero() {
               <ArrowDown
                 size={16}
                 className="group-hover:translate-y-0.5 transition-transform"
+                aria-hidden="true"
               />
             </Button>
             <Button variant="secondary" size="lg" href={personal.contactUrl}>
-              <Mail size={16} />
+              <Mail size={16} aria-hidden="true" />
               {t.hero.cta.secondary}
             </Button>
             <Button variant="ghost" size="lg" href={personal.github} external>
-              <Github size={16} />
+              <Github size={16} aria-hidden="true" />
               {t.hero.cta.github}
             </Button>
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl" role="list" aria-label={t.lang === "es" ? "Estadísticas" : "Stats"}>
             {t.hero.stats.map((stat) => (
               <div
                 key={stat.label}
+                role="listitem"
                 className="flex flex-col gap-0.5 p-4 rounded-xl bg-surface/50 border border-border/50 backdrop-blur-sm"
               >
-                <span className="text-2xl font-bold gradient-text-blue">
+                <span className="text-2xl font-bold gradient-text-blue" aria-label={`${stat.value} ${stat.label}`}>
                   {stat.value}
                 </span>
-                <span className="text-xs text-text-muted leading-tight">
+                <span className="text-xs text-text-muted leading-tight" aria-hidden="true">
                   {stat.label}
                 </span>
               </div>
@@ -95,11 +93,11 @@ export function Hero() {
           </div>
 
           {/* Tech badges */}
-          <div className="flex flex-wrap gap-2 mt-8">
+          <div className="flex flex-wrap gap-2 mt-8" role="list" aria-label={t.lang === "es" ? "Tecnologías principales" : "Core technologies"}>
             {["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"].map((tech) => (
-              <Badge key={tech} variant="muted">
-                {tech}
-              </Badge>
+              <span key={tech} role="listitem">
+                <Badge variant="muted">{tech}</Badge>
+              </span>
             ))}
           </div>
         </div>
@@ -107,16 +105,17 @@ export function Hero() {
           {/* Photo */}
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-3xl bg-accent/20 blur-2xl -z-10" />
+              <div className="absolute -inset-1 rounded-3xl bg-accent/20 blur-2xl -z-10" aria-hidden="true" />
               <div className="relative w-80 aspect-[3/4] rounded-3xl overflow-hidden border border-border/50">
                 <Image
                   src="/profile.jpg"
-                  alt={personal.name}
+                  alt={`${personal.fullName} — Full Stack Developer`}
                   fill
+                  sizes="(max-width: 1024px) 0px, 320px"
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -125,7 +124,10 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"
+        aria-hidden="true"
+      >
         <span className="text-xs text-text-muted tracking-widest uppercase">
           {t.hero.scroll}
         </span>

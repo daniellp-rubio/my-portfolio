@@ -35,7 +35,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("es");
 
   useEffect(() => {
-    setLangState(detectPreferredLang());
+    const preferred = detectPreferredLang();
+    setLangState(preferred);
+    document.documentElement.lang = preferred;
   }, []);
 
   const setLang = useCallback((next: Lang) => {

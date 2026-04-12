@@ -6,7 +6,7 @@
 export const personal = {
   name: "Daniel Lopez",
   fullName: "Daniel Felipe Lopez Rubio",
-  title: "Full Stack Developer",
+  title: "Full Stack Developer | Software Engineer",
   tagline: "Construyo sistemas que escalan, no solo código que funciona.",
   subTagline:
     "Especializado en React, Next.js y Node.js · 2.5+ años en producción · Equipos remotos en LATAM",
@@ -19,7 +19,7 @@ export const personal = {
   cvUrl: "/cv-daniel-lopez.pdf",    // CV en español → coloca el archivo en /public/
   cvUrlEn: "/cv-daniel-lopez-en.pdf", // CV en inglés  → coloca el archivo en /public/
   get contactUrl() {
-    return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(this.email)}`;
+    return `mailto:${this.email}`;
   },
 };
 
@@ -29,11 +29,12 @@ export const stats = [
   { value: "5+", label: "sistemas activos" },
   { value: "100%", label: "remoto" },
 ];
+// NOTE: stats values are authoritative here. Translations (es.ts / en.ts) must match these values.
 
 export const about = {
   headline: "No solo escribo código. Entiendo el negocio.",
   paragraphs: [
-    "En los últimos 2 años he trabajado directamente sobre sistemas en producción que operan en Colombia, México y Brasil. No simulacros ni proyectos académicos — módulos financieros críticos, arquitecturas que necesitaban ser estabilizadas, incidentes reales resueltos bajo presión.",
+    "Llevo 2+ años con responsabilidad directa sobre sistemas en producción que operan en Colombia, México y Brasil — módulos financieros críticos, arquitecturas inestables estabilizadas, incidentes resueltos directamente en producción donde cada minuto de caída tiene costo real.",
     "Me especializo en tomar problemas complejos de negocio y convertirlos en soluciones técnicas que funcionan. Trabajo bien con stakeholders, entiendo el impacto de cada decisión técnica, y sé cuándo la solución perfecta es peor que la solución que se entrega.",
     "Busco equipos remotos donde el criterio técnico importa, donde el código que se escribe va a producción, y donde construir bien desde el inicio marca la diferencia.",
   ],
@@ -44,7 +45,6 @@ export const about = {
     { icon: "shield", label: "Código mantenible", desc: "Architecturas que el siguiente dev puede entender" },
   ],
 };
-
 
 export type Experience = {
   company: string;
@@ -65,30 +65,17 @@ export const experience: Experience[] = [
     current: true,
     type: "Full-time · Remoto",
     description:
-      "Plataformas de logística de última milla (DIKE, Fieldvision, Treggo) que operan en Colombia, México y Brasil.",
+      "Desarrollador Fullstack en plataformas de logística de última milla (DIKE, FieldVision, Treggo) operando en producción en Colombia, México y Brasil.",
     highlights: [
-      "Responsabilidad directa sobre módulos financieros críticos en producción",
-      "Refactorización de arquitectura inestable heredada en sistemas con usuarios reales",
-      "Implementación de sistema de logging fullstack para detección de errores en tiempo real",
-      "Resolución de incidentes urgentes directamente en producción",
-      "Colaboración directa con stakeholders de negocio para transformar requerimientos en soluciones técnicas",
+      "Refactoricé completamente el módulo de liquidación de pagos de conductores sobre arquitectura inestable con errores semanales recurrentes → +20% en velocidad de procesamiento, cero errores desde la intervención",
+      "Asumí módulo RNDC (Registro Nacional de Despachos de Carga) — integración obligatoria con el Ministerio de Transporte de Colombia, con consecuencias legales ante errores",
+      "Me integré a un proyecto activo en 1 semana, asumiendo responsabilidad directa sobre módulos críticos sin periodo de gracia",
+      "Implementé sistema de logging fullstack automatizado para detección de errores en tiempo real",
+      "Adapté lógica de negocio financiera para cálculos específicos por país (Colombia y México) con reglas distintas por mercado",
+      "Resolví incidentes críticos con intervención directa en producción, minimizando tiempo de caída en sistemas con usuarios activos",
+      "Traduje requerimientos de negocio complejos en soluciones técnicas coordinando directamente con stakeholders de operaciones"
     ],
     tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
-  },
-  {
-    company: "D&D",
-    role: "Desarrollador Full Stack",
-    period: "Junio 2024 — Presente",
-    current: true,
-    type: "Freelance",
-    description:
-      "Desarrollo y mantenimiento de plataforma de comercio electrónico con panel administrativo.",
-    highlights: [
-      "Arquitectura full stack independiente de inicio a producción",
-      "Implementación de funcionalidades para usuario final y panel administrativo",
-      "Gestión autónoma del proyecto y comunicación directa con el cliente",
-    ],
-    tags: ["React", "Next.js", "Node.js", "MongoDB"],
   },
   {
     company: "Disruptive Information Technologies",
@@ -97,11 +84,13 @@ export const experience: Experience[] = [
     current: false,
     type: "Full-time · Remoto",
     description:
-      "Lideré el desarrollo del frontend de Mesadoko, plataforma SaaS, desde cero hasta producción.",
+      "Lideré el frontend del aplicativo web Mesadoko (plataforma educativa gamificada) desde cero hasta producción, en Next.js 13 + TypeScript.",
     highlights: [
-      "Lideré la arquitectura frontend con Next.js y TypeScript",
-      "Entrega de múltiples módulos hasta producción",
-      "Colaboración directa con equipo de producto para mejorar UX",
+      "Lideré reescritura completa del frontend (propuesta, aprobación del cliente y ejecución) logrando +60% de mejora en UX y -40% en tiempos de carga respecto a la versión heredada",
+      "Entregué la plataforma dentro del plazo estimado, habilitando el lanzamiento comercial del producto en tiempo",
+      "Diseñé arquitectura de componentes reutilizables que permitió incorporar módulos adicionales sin refactorización",
+      "Construí sistema conectado a app móvil con múltiples módulos funcionales desde día uno",
+      "Entregué código documentado y mantenible como entregable explícito para el equipo de continuidad"
     ],
     tags: ["Next.js", "TypeScript", "React"],
   },
@@ -110,12 +99,15 @@ export const experience: Experience[] = [
     role: "Desarrollador Full Stack",
     period: "Abril 2023 — Octubre 2023",
     current: false,
-    type: "Práctica",
+    type: "Voluntariado",
     description:
-      "Desarrollo de panel administrativo y API REST para institución pública.",
+      "Lideré el desarrollo fullstack de SenaOnPrinting, sistema de gestión centralizada para el taller de preprensa del SENA, reemplazando procesos manuales dispersos en múltiples Excel sin sincronización.",
     highlights: [
-      "Panel administrativo con React y Tailwind CSS",
-      "API REST en .NET 6 con arquitectura en capas",
+      "Diseñé y desarrollé la arquitectura backend en .NET 6 con estructura en capas, incluyendo módulos de inventario, ventas, producción y compras.",
+      "Construí el frontend en React + Tailwind CSS con CRUD completo, paginación, búsqueda y reportes.",
+      "Participé en la estructura inicial de la app móvil (navegación, layout, primeras pantallas).",
+      "Coordiné con cliente sin experiencia técnica para aterrizar requerimientos ambiguos en soluciones concretas.",
+      "Proyecto ejecutado como voluntariado, liderando coordinación entre 10 personas"
     ],
     tags: ["React", "Tailwind CSS", ".NET 6", "PostgreSQL"],
   },
@@ -139,90 +131,95 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "logistics-platform",
-    title: "Plataforma de Logística Multi-país",
+    id: "dyd-tech",
+    title: "D&D Tech — Ecommerce de Gadgets",
     shortDesc:
-      "Sistema de gestión operativa para empresas de última milla en LATAM",
+      "Emprendimiento personal: tienda online de gadgets tecnológicos con pasarela de pagos real",
     problem:
-      "Arquitectura inestable heredada que fallaba bajo carga real. Los módulos financieros de liquidación tenían bugs silenciosos que generaban errores en los pagos a conductores.",
+      "Necesitaba construir desde cero un ecommerce propio para vender gadgets tecnológicos (audífonos, cargadores Apple, bafles), con pagos reales integrados, panel de administración completo y sin depender de plataformas terceras como Shopify.",
     solution:
-      "Refactorización completa de los módulos críticos, implementación de un sistema de logging automatizado fullstack para detección de errores en tiempo real, y rediseño de la lógica de cálculo de liquidaciones por período.",
+      "Desarrollé toda la plataforma de forma autodidacta y sin asistencia de IA: Next.js 15 + Prisma + PostgreSQL para el backend, NextAuth v5 con sistema de roles (admin/user), integración nativa de Mercado Pago con webhook de confirmación de pagos, Cloudinary para imágenes, Zustand para el carrito y panel admin completo con gestión de productos, pedidos y usuarios.",
     result:
-      "Eliminación de errores silenciosos en cálculos financieros. Sistema estabilizado operando en producción para Colombia, México y Brasil sin interrupciones.",
-    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
-    category: "Enterprise",
+      "Plataforma propia en producción (Vercel) con pagos reales procesados vía Mercado Pago. 9 categorías de productos, checkout completo con gestión de direcciones, historial de órdenes y panel administrativo funcional.",
+    tags: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Mercado Pago", "Cloudinary", "Zustand", "Tailwind CSS"],
+    category: "Proyecto Personal",
     featured: true,
     metrics: [
-      { value: "3", label: "países" },
-      { value: "0", label: "errores de liquidación post-fix" },
-      { value: "100%", label: "uptime en producción" },
+      { value: "9", label: "categorías de productos" },
+      { value: "8", label: "modelos Prisma en producción" },
+      { value: "2", label: "roles (admin / usuario)" },
     ],
-  },
-  {
-    id: "ecommerce-platform",
-    title: "Plataforma E-commerce Full Stack",
-    shortDesc:
-      "Plataforma de comercio electrónico con panel administrativo completo",
-    problem:
-      "Empresa necesitaba digitalizar su operación de ventas con gestión de inventario, pedidos y administración de usuarios en una sola plataforma integrada.",
-    solution:
-      "Arquitectura full stack con Next.js para el frontend del cliente, panel administrativo con React + TypeScript, y API REST en Node.js con autenticación por roles y gestión completa de catálogo.",
-    result:
-      "Plataforma actualmente en operación. Redujo el tiempo de gestión de pedidos de horas a minutos y permitió escalar las ventas online.",
-    tags: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB"],
-    category: "E-commerce",
-    featured: true,
-    metrics: [
-      { value: "—", label: "tiempo de gestión" },
-      { value: "2", label: "tipos de usuario (admin/cliente)" },
-      { value: "100%", label: "en producción" },
-    ],
-    github: "https://github.com/daniellp-rubio/DyD",  // si es público
+    github: "https://github.com/daniellp-rubio/DyD",
     live: "https://gadgetsdyd-daintzs-projects.vercel.app/",
   },
   {
-    id: "admin-dashboard",
-    title: "Sistema Administrativo Web",
+    id: "sana-on-printing",
+    title: "SENA On Printing — Sistema de Gestión Industrial",
     shortDesc:
-      "Panel de administración escalable con arquitectura de módulos independientes",
+      "Sistema web y móvil que digitalizó completamente la operación de un taller de impresión (offset, digital y sublimación) en Medellín.",
     problem:
-      "Organización pública necesitaba digitalizar procesos manuales de gestión con múltiples roles de usuario, reportes en tiempo real y una API robusta para integrarse con otros sistemas.",
+      "El centro operaba con papel y Excel desconectados: sin trazabilidad de insumos, cotizaciones poco confiables y sin verificación de stock antes de aceptar órdenes de producción. Cada área trabajaba con datos distintos y desactualizados.",
     solution:
-      "Panel administrativo construido con React + Tailwind CSS con sistema de roles granular, y una API REST en .NET 6 estructurada en capas (controladores, servicios, repositorios) con PostgreSQL.",
+      "Lideré un equipo de 10 personas en el desarrollo fullstack del sistema (3 repositorios: backend, frontend y móvil). Construí la Web API REST en ASP.NET Core 6.0 con arquitectura en capas sobre SQL Server (28 tablas), el frontend en React.js y la app móvil en Flutter. Entregué módulos de configuración, usuarios con RBAC, compras (insumos, proveedores, lotes, etiquetas QR, fichas de seguridad), producción y ventas.",
     result:
-      "Sistema desplegado en producción que reemplazó procesos en papel. Arquitectura en capas que permitió integración con sistemas externos sin modificar el core.",
-    tags: ["React", "Tailwind CSS", ".NET 6", "PostgreSQL", "REST API"],
-    category: "Dashboard",
+      "Sistema en producción con más de 90 endpoints REST, desplegado en Vercel. Reemplazó todos los procesos en papel del centro y logró trazabilidad total de insumos, cotizaciones confiables y control de stock en tiempo real.",
+    tags: ["C#", "ASP.NET Core 6.0", "React.js", "Flutter", "Dart", "SQL Server", "REST API"],
+    category: "Enterprise",
     featured: false,
+    github: "https://github.com/daniellp-rubio/SenaOnPrintingBackend",
+    live: "https://senaonprinting-frontend-production.vercel.app/login",
     metrics: [
-      { value: "0", label: "papel en el proceso" },
-      { value: "N", label: "roles configurables" },
-      { value: "REST", label: "API integrable" },
+      { value: "28", label: "tablas SQL Server" },
+      { value: "90+", label: "endpoints REST" },
+      { value: "10", label: "personas lideradas" },
     ],
   },
   {
-    id: "mesadoko",
-    title: "Aplicación Web Mesadoko",
+    id: "agent-hub",
+    title: "AgentHub — Plataforma de Agentes IA",
     shortDesc:
-      "Frontend completo desde cero hasta producción para plataforma SaaS",
+      "Plataforma multi-tenant para desplegar agentes de IA conversacionales que califican leads y convierten consultas en pacientes para clínicas.",
     problem:
-      "Startup necesitaba construir toda la interfaz de usuario de su plataforma desde cero, con múltiples módulos, sin deuda técnica desde el inicio y con arquitectura que soportara crecimiento.",
+      "Las clínicas perdían leads al no tener atención 24/7: sin sistema para calificar pacientes automáticamente ni capturar señales de intención en tiempo real.",
     solution:
-      "Lideré el desarrollo completo del frontend: definición de arquitectura con Next.js y TypeScript, sistema de componentes reutilizables, implementación de múltiples módulos y colaboración directa con el equipo de UX.",
+      "Plataforma multi-tenant con agentes embebibles vía un script tag, LLMs en streaming por OpenRouter, persistencia en Supabase (PostgreSQL + RLS) y pipeline de clasificación automática que genera analytics de intención, sentimiento y objeciones.",
     result:
-      "Plataforma lanzada a producción en plazo. Arquitectura escalable que permitió incorporar nuevos módulos sin refactorización.",
-    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
-    category: "SaaS",
-    featured: false,
+      "Agentes operando 24/7 en sitios de clínicas con dashboard de conversión, detección de cuellos de botella y mejora automática de prompts generada por IA.",
+    tags: ["Next.js 15", "TypeScript", "Supabase", "OpenRouter", "PostgreSQL", "Tailwind CSS"],
+    category: "IA / SaaS",
+    featured: true,
+    github: "https://github.com/daniellp-rubio/project-agent",
     metrics: [
-      { value: "0→1", label: "desde cero a producción" },
-      { value: "Multi", label: "módulos entregados" },
-      { value: "Lead", label: "rol técnico frontend" },
+      { value: "24/7", label: "atención automatizada" },
+      { value: "Multi-tenant", label: "arquitectura multi-organización" },
+      { value: "Streaming", label: "LLM en tiempo real" },
+    ],
+  },
+  {
+    id: "franchise-api",
+    title: "Franchise API — Gestión Reactiva de Franquicias",
+    shortDesc:
+      "API reactiva cloud-ready para gestión de franquicias, sucursales y productos. Spring WebFlux + MongoDB + Terraform en AWS.",
+    problem:
+      "Gestionar operaciones de franquicias bajo alta concurrencia requería una arquitectura no bloqueante — los sistemas tradicionales Servlet degradaban latencia bajo carga real.",
+    solution:
+      "API reactiva end-to-end con Spring WebFlux + MongoDB reactive driver (non-blocking I/O completo), containerizada con Docker Compose, infraestructura cloud-ready desplegada en AWS ECS Fargate vía Terraform e integrada con SpringDoc OpenAPI para documentación automática.",
+    result:
+      "Sistema production-ready con arquitectura reactiva completa, infraestructura como código reproducible y documentación interactiva auto-generada con Swagger UI.",
+    tags: ["Java 17", "Spring WebFlux", "MongoDB", "Docker", "Terraform", "AWS ECS Fargate", "Swagger/OpenAPI"],
+    category: "API / Backend",
+    featured: false,
+    github: "https://github.com/daniellp-rubio/franchise-api",
+    metrics: [
+      { value: "Reactivo", label: "Spring WebFlux + MongoDB no-blocking" },
+      { value: "IaC", label: "Terraform + AWS ECS Fargate" },
+      { value: "OpenAPI", label: "docs auto-generadas con Swagger" },
     ],
   },
 ];
 
 export type SkillCategory = {
+  key: string;
   name: string;
   icon: string;
   skills: { name: string; level: "core" | "proficient" | "familiar" }[];
@@ -230,6 +227,7 @@ export type SkillCategory = {
 
 export const stack: SkillCategory[] = [
   {
+    key: "frontend",
     name: "Frontend",
     icon: "monitor",
     skills: [
@@ -242,6 +240,7 @@ export const stack: SkillCategory[] = [
     ],
   },
   {
+    key: "backend",
     name: "Backend",
     icon: "server",
     skills: [
@@ -252,6 +251,7 @@ export const stack: SkillCategory[] = [
     ],
   },
   {
+    key: "database",
     name: "Bases de datos",
     icon: "database",
     skills: [
@@ -260,6 +260,7 @@ export const stack: SkillCategory[] = [
     ],
   },
   {
+    key: "devops",
     name: "DevOps & Tools",
     icon: "tool",
     skills: [
