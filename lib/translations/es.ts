@@ -98,13 +98,11 @@ export const es: Translation = {
       description:
         "Desarrollador Fullstack en plataformas de logística de última milla (DIKE, FieldVision, Treggo) operando en producción en Colombia, México y Brasil.",
       highlights: [
-        "Refactoricé completamente el módulo de liquidación de pagos de conductores sobre arquitectura inestable con errores semanales recurrentes → +20% en velocidad de procesamiento, cero errores desde la intervención",
-        "Asumí módulo RNDC (Registro Nacional de Despachos de Carga) — integración obligatoria con el Ministerio de Transporte de Colombia, con consecuencias legales ante errores",
-        "Me integré a un proyecto activo en 1 semana, asumiendo responsabilidad directa sobre módulos críticos sin periodo de gracia",
-        "Implementé sistema de logging fullstack automatizado para detección de errores en tiempo real",
-        "Adapté lógica de negocio financiera para cálculos específicos por país (Colombia y México) con reglas distintas por mercado",
-        "Resolví incidentes críticos con intervención directa en producción, minimizando tiempo de caída en sistemas con usuarios activos",
-        "Traduje requerimientos de negocio complejos en soluciones técnicas coordinando directamente con stakeholders de operaciones",
+        "Propuse y lideré la refactorización del módulo de liquidación de pagos: +20% velocidad de procesamiento, errores semanales eliminados, activo en 3 países",
+        "Módulo RNDC: integración obligatoria con el Ministerio de Transporte; multas de hasta 20 SMMLV por incumplimiento",
+        "Implementé monitoreo de errores en producción con Sentry (frontend + backend) y cobertura de tests con Jest",
+        "Adapté lógica financiera para Colombia y México con reglas de cálculo específicas por mercado",
+        "Panel administrativo para la Secretaría de Movilidad de Bogotá (en desarrollo)",
       ],
     },
     {
