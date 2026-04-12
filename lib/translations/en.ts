@@ -98,13 +98,11 @@ export const en: Translation = {
       description:
         "Fullstack Developer on last-mile logistics platforms (DIKE, FieldVision, Treggo) running in production across Colombia, Mexico, and Brazil.",
       highlights: [
-        "Fully refactored the driver payment settlement module on top of an unstable architecture with recurring weekly errors → +20% processing speed, zero errors since the intervention",
-        "Took ownership of the RNDC module (Colombia's National Freight Dispatch Registry) — mandatory integration with the Ministry of Transportation, with legal consequences on errors",
-        "Onboarded onto an active project in 1 week, taking direct ownership of critical modules with no grace period",
-        "Implemented a fullstack automated logging system for real-time error detection",
-        "Adapted financial business logic for country-specific calculations (Colombia and Mexico) with distinct rules per market",
-        "Resolved critical incidents with direct production intervention, minimizing downtime on systems with active users",
-        "Translated complex business requirements into technical solutions by coordinating directly with operations stakeholders",
+        "Proposed and led refactor of driver payment settlement module: +20% processing speed, weekly errors eliminated, active across 3 countries",
+        "Owned RNDC module — mandatory Ministry of Transportation integration; fines up to 20 SMMLV for non-compliance",
+        "Implemented production error monitoring with Sentry (frontend + backend) and Jest test coverage",
+        "Adapted financial business logic for Colombia and Mexico with distinct calculation rules per market",
+        "Administrative panel for Bogota Mobility Secretariat (in development)",
       ],
     },
     {
