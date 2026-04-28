@@ -25,14 +25,14 @@ export const en: Translation = {
       line4: "that works.",
     },
     subtext:
-      "Full Stack Developer specialized in React, Next.js, and Node.js. 2.5 years building and stabilizing production platforms operating across Colombia, Mexico, and Brazil.",
+      "Full Stack Developer specialized in React, Next.js, and Node.js. 3 years building and stabilizing production platforms operating across Colombia, Mexico, and Brazil.",
     cta: {
       primary: "View my projects",
       secondary: "Let's talk",
       github: "GitHub",
     },
     stats: [
-      { value: "2.5+", label: "years in production" },
+      { value: "3+", label: "years in production" },
       { value: "3", label: "countries of operation" },
       { value: "5+", label: "live systems" },
       { value: "100%", label: "remote" },
@@ -43,7 +43,7 @@ export const en: Translation = {
     label: "About",
     headline: "I don't just write code. I understand the business.",
     paragraphs: [
-      "Over the past 2.5 years I've worked directly on production systems operating in Colombia, Mexico, and Brazil. Not simulations or academic projects — critical financial modules, architectures stabilized under pressure, integrations with legal consequences on errors.",
+      "Over the past 3 years I've worked directly on production systems operating in Colombia, Mexico, and Brazil. Not simulations or academic projects — critical financial modules, architectures stabilized under pressure, integrations with legal consequences on errors.",
       "I specialize in turning complex business problems into technical solutions that ship, not just that get designed. I understand the impact of every technical decision, work directly with stakeholders, and know when the perfect solution is worse than the one that arrives on time.",
       "I'm looking for a remote team where technical judgment carries real weight — where what I build goes to production and where getting it right from the start actually matters.",
     ],
@@ -85,7 +85,7 @@ export const en: Translation = {
   },
   experience: {
     label: "Experience",
-    headline: "2.5+ years building in production",
+    headline: "3+ years building in production",
     subtext:
       "No simulations. Real systems with real users where mistakes have real consequences.",
     currentBadge: "Current",

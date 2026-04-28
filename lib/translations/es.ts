@@ -25,14 +25,14 @@ export const es: Translation = {
       line4: "que funciona.",
     },
     subtext:
-      "Full Stack Developer especializado en React, Next.js y Node.js. 2.5 años construyendo y estabilizando plataformas en producción que operan en Colombia, México y Brasil.",
+      "Full Stack Developer especializado en React, Next.js y Node.js. 3 años construyendo y estabilizando plataformas en producción que operan en Colombia, México y Brasil.",
     cta: {
       primary: "Ver mis proyectos",
       secondary: "Hablemos",
       github: "GitHub",
     },
     stats: [
-      { value: "2.5+", label: "años en producción" },
+      { value: "3+", label: "años en producción" },
       { value: "3", label: "países de operación" },
       { value: "5+", label: "sistemas activos" },
       { value: "100%", label: "remoto" },
@@ -43,7 +43,7 @@ export const es: Translation = {
     label: "Sobre mí",
     headline: "No solo escribo código. Entiendo el negocio.",
     paragraphs: [
-      "En los últimos 2.5 años he trabajado directamente sobre sistemas en producción que operan en Colombia, México y Brasil. No simulacros ni proyectos académicos — módulos financieros críticos, arquitecturas estabilizadas bajo presión, integraciones con consecuencias legales ante errores.",
+      "En los últimos 3 años he trabajado directamente sobre sistemas en producción que operan en Colombia, México y Brasil. No simulacros ni proyectos académicos — módulos financieros críticos, arquitecturas estabilizadas bajo presión, integraciones con consecuencias legales ante errores.",
       "Me especializo en convertir problemas complejos de negocio en soluciones técnicas que se entregan, no solo que se diseñan. Entiendo el impacto de cada decisión técnica, trabajo directo con stakeholders, y sé cuándo la solución perfecta es peor que la que llega a tiempo.",
       "Estoy buscando un equipo remoto donde el criterio técnico tenga peso real — donde lo que construyo va a producción y donde hacerlo bien desde el inicio tiene valor.",
     ],
@@ -85,7 +85,7 @@ export const es: Translation = {
   },
   experience: {
     label: "Experiencia",
-    headline: "2.5+ años construyendo en producción",
+    headline: "3+ años construyendo en producción",
     subtext:
       "No simulacros. Sistemas reales con usuarios reales donde los errores tienen consecuencias.",
     currentBadge: "Actual",
