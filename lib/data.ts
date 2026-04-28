@@ -9,7 +9,7 @@ export const personal = {
   title: "Full Stack Developer | Software Engineer",
   tagline: "Construyo sistemas que escalan, no solo código que funciona.",
   subTagline:
-    "Especializado en React, Next.js y Node.js · 2.5+ años en producción · Equipos remotos en LATAM",
+    "Especializado en React, Next.js y Node.js · 3+ años en producción · Equipos remotos en LATAM",
   email: "dafeloru@gmail.com",
   github: "https://github.com/daniellp-rubio",
   linkedin: "https://linkedin.com/in/daniel-lopez-rubio",
@@ -24,7 +24,7 @@ export const personal = {
 };
 
 export const stats = [
-  { value: "2.5+", label: "años en producción" },
+  { value: "3+", label: "años en producción" },
   { value: "3", label: "países de operación" },
   { value: "5+", label: "sistemas activos" },
   { value: "100%", label: "remoto" },
