@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Daniel Lopez",
   },
   description:
-    "Full Stack Developer | React, Next.js, TypeScript, Node.js. 2.5+ años construyendo sistemas en producción en Colombia, México y Brasil. Especializado en plataformas escalables, módulos financieros y arquitecturas críticas. Disponible para trabajo remoto.",
+    "Full Stack Developer | React, Next.js, TypeScript, Node.js. 3+ años construyendo sistemas en producción en Colombia, México y Brasil. Especializado en plataformas escalables, módulos financieros y arquitecturas críticas. Disponible para trabajo remoto.",
   keywords: [
     "full stack developer",
     "full-stack engineer",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     title: "Daniel Lopez — Full Stack Developer | React, Next.js, Node.js",
     description:
-      "Full Stack Developer con 2.5+ años en producción. Sistemas reales en Colombia, México y Brasil. Disponible para trabajo remoto.",
+      "Full Stack Developer con 3+ años en producción. Sistemas reales en Colombia, México y Brasil. Disponible para trabajo remoto.",
     siteName: "Daniel Lopez",
     images: [
       {
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Daniel Lopez — Full Stack Developer",
     description:
-      "Full Stack Developer con 2.5+ años en producción. React, Next.js, Node.js. Disponible para trabajo remoto.",
+      "Full Stack Developer con 3+ años en producción. React, Next.js, Node.js. Disponible para trabajo remoto.",
     creator: "@daniellopezdev",
     images: ["/og"],
   },
@@ -98,7 +98,7 @@ const jsonLd = {
       url: BASE_URL,
       jobTitle: "Full Stack Developer",
       description:
-        "Full Stack Developer con 2.5+ años construyendo sistemas en producción. Especializado en React, Next.js y Node.js.",
+        "Full Stack Developer con 3+ años construyendo sistemas en producción. Especializado en React, Next.js y Node.js.",
       email: "dafeloru@gmail.com",
       sameAs: [
         "https://github.com/daniellp-rubio",
